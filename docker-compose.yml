@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    restart: always
+    volumes:
+      - './deploy:/home/deploy'
+    # requirements.txtに記述したモジュールをインストール
+    # (途中でインストールエラーが起きたら原因調査がめんどくさいのでコンテナに入って手動でコマンド入力する。)
+    # command: pip install -r /home/deploy/requirements.txt -t /home/deploy/python
+    stdin_open: true
+    tty: true
